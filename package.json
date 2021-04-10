@@ -1,0 +1,20 @@
+{
+  "name": "hex-batch-core",
+  "version": "0.5.0-alpha.0",
+  "description": "Library for manipulating large scale objects in maps split up on different servers",
+  "keywords": [
+    "hexbatch"
+  ],
+  "homepage": "https://hexbatch.com/hex-batch-core",
+  "license": "MIT",
+  "author": "Will Woodlief",
+  "contributors": [
+    "Will Woodlief"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hexbatch/hex-batch-core.git"
+  },
+  "dependencies": {
+  }
+}
