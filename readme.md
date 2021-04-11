@@ -154,10 +154,25 @@ Hex Batch is not meant to be run alone when different users are managing their o
 
 ## List of Resources
 
-* [emscripten](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html)
+### Doxygen
 * [doxygen](https://www.doxygen.nl/manual/autolink.html)
-  * [docker for doxygen that is mostly current](https://hub.docker.com/r/hrektts/doxygen) might need to be customized
-* [Swagger JS Doc](https://github.com/Surnet/swagger-jsdoc)
+  * [Examples with how to do some page things](http://www.gerald-fahrnholz.eu/sw/DocGenerated/HowToUse/html/group___grp_about_this_doc_link_pages.html)
+  * [Examples with some other things](https://root.cern/for_developers/doxygen/)  
+  * [Making different todo lists](https://www.doxygen.nl/manual/commands.html#cmdxrefitem)  
+  * [Doxygen Config file stuff](https://www.doxygen.nl/manual/config.html)  
+
+  * [docker for doxygen that is mostly current](https://hub.docker.com/r/hrektts/doxygen) 
+    * might need to be customized
+    
+  * [How to install doxygen from sources on Ubuntu](https://github.com/doxygen/doxygen/issues/8054)
+    * Excellent description and can try to install on a fresh ubuntu 20.04 (was for 18.04).
+      This might be a bit of a hassle, taking 2 or 3 hours, but I want the most recent versions
+    
+
+
+### Emscripten
+
+* [emscripten](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html)
 
 ### Database
 
@@ -185,6 +200,17 @@ Hex Batch is not meant to be run alone when different users are managing their o
 
 
 
-Json
+### Json
 * [Mysql uses draft 4 of the json schema](https://json-schema.org/learn/getting-started-step-by-step.html)
    * so can enforce minimal json structures
+    
+
+### Swagger
+
+swagger I am not using right now but keep this for later
+
+* [Swagger JS Doc](https://github.com/Surnet/swagger-jsdoc)
+
+
+### Conventions
+*[google](https://google.github.io/styleguide/cppguide.html)
