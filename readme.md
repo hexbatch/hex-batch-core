@@ -24,7 +24,7 @@ A list of all the high level ideas this library uses
   *   Divides the world into geographical sections. A promise cannot operate across shards. Shards are important to split up servers that get too busy
 *   𝞴 Instances
   *   Are the only such trait based structure which can move about to different coordinates in a world, and have a shape which is plotted on the map
-*   # Interfaces
+*   \# Interfaces
   *   Control the bounds, creation and destruction of instances. Also a trait based structure
 *   𝞇 Promises
   *   Instances run code inside a concept called a promise, which either succeeds and changes things outside of the promise afterwards. Or if it fails nothing is changed. Promises will collect instances from different areas and servers to do work on them. Promises is also how a lot of instances can move around
@@ -156,6 +156,7 @@ Hex Batch is not meant to be run alone when different users are managing their o
 
 * [emscripten](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html)
 * [doxygen](https://www.doxygen.nl/manual/autolink.html)
+  * [docker for doxygen that is mostly current](https://hub.docker.com/r/hrektts/doxygen) might need to be customized
 * [Swagger JS Doc](https://github.com/Surnet/swagger-jsdoc)
 
 ### Database
