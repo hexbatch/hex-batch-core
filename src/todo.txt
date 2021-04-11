@@ -49,3 +49,5 @@ todo it should use the source code OR
                 download the branch used, if this is part of a repo, OR
                 if should get the most recent stable version and build it and install it. Should use the same db credential variables for customization
 todo integeration tests should be run again inside the docker container as part of its build step, these are the tests associated with that version it built
+
+todo CLion IDE settings : need to share build settings and to-do lists and spelling

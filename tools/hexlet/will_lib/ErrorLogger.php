@@ -156,9 +156,7 @@ class  ErrorLogger {
 		$info['parent_id'] = $parent_id;
 		$batch_id = null;
 		$version = HEXLET_VERSION;
-//		if (GoKabamSystem::get_system()->get_current_batch() ) {
-//			$batch_id =  GoKabamSystem::get_system()->get_current_batch()->get_id(); //todo add in batch id again
-//		}
+
 		try {
 			unset($info['other_info']);
 			$info['trace'] = null; //do not save the array trace, recursion issues
