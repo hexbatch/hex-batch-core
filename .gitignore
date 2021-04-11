@@ -1,3 +1,6 @@
 /.idea/
 /cmake-build-debug/
+tools/vendor/
+
+#any log files
 *.log
