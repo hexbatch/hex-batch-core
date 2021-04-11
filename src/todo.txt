@@ -42,6 +42,30 @@ todo when ready to make a push to a protected branch [alpha,beta,release,master]
 todo figure out a decent version path (do I just read it from the package.json when building and put it in a constant in the code , and use the same thing elewhere?)
 todo build the docker image of this library from current source and run integration tests on that also
 
+git branches that are protected: alpha/*, beta/*, master, release/*
+the alpha, beta and release branches share the same version number as the name so alpha/1.0.1.x beta/1.0.1.x release/1.0.1.x
+
+new alpha branch is spun off from master it has the current version of 3 plus a 0 for x , so 1.0.1.0
+issues solved in alpha are done in topic branches, then put in master, and then new alpha branch is made with x bumped up so alpha/1.0.1.1.
+   Old alpha branch of 1.0.1.0 is deleted off origin
+
+once the current alpha branch looks stable enough a new beta branch is spun off that alpha, and has the same version of 4, so beta/1.0.1.1
+when during beta testing issues are fixed in topics, they are pushed to master , and a new alpha branch is made with x (2 for example) bumped up again (and the older alpha removed)
+the new beta branch from the fixes in alpha branch is created (so now beta/1.0.1.2 is here and the older beta/1.0.1.1 is removed from origin)
+keep cycling like that until we get a beta that passes ok (so for example beta/1.0.1.23)
+when release is ready, the release branch is spun off from the beta branch , made release/1.0.1.23 and its distributed and the master branch has that tag now at the last commit
+The release branch’s lifetime ends when its replaced by another release.
+
+Rules to live by:
+only one alpha, beta, release branch exists at the same time
+the tags in master are made to mark where each alpha , beta and release was spun off at (with same name as branch, I think?)
+there is a constantly updated tag on master that points to the most current alpha, beta, and release and they are named just with that word
+commits to master must pass all unit tests, and integrated source tests, and have its docker image of the library for current source pass its integration tests
+
+pre-alpha branches escape all of these rules, as development is too fast and chaotic for all this nonsense of well established work flow. Chaos rules!
+With one important exception: any commit to the master branch must pass tests and be able to build a container that passes tests.
+This means no updates to master until we have tests actually existing (or at least one!) and a container that actually works with the current version (such is) library
+
 build SELF Docker Image !
 todo Have docker image for running the built library!
 in the tools/ one of the docker containers should be running this library , and the library should be the one just built
