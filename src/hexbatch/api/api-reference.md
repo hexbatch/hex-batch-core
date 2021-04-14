@@ -1,6 +1,9 @@
+\page HexbatchApiReference Api Reference
+
 # API Reference (partial)
 
 ## User Accounts
+\section UserAccounts  User Accounts
 
 * To get the default sudo user ```> get_default_sudo```
 

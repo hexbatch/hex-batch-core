@@ -1,4 +1,8 @@
-# Library Operations
+\page HexbatchApiOperations Library Operations
+
+[TOC]
+
+# Library Operations 
 
 
 ## Calling the api

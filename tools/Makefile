@@ -4,6 +4,16 @@ DEFAULT_CONTAINER=workspace
 DOCKER_COMPOSE=docker-compose -f $(DOCKER_COMPOSE_FILE) --project-directory $(DOCKER_COMPOSE_DIR)
 
 
+MK_PATH:=$(dir $(realpath $(lastword $(MAKEFILE_LIST))))
+ROOT_FOLDER:=$(realpath $(MK_PATH)../)
+
+
+SRC_FOLDER=$(ROOT_FOLDER)/src
+DOCS_FOLDER=$(ROOT_FOLDER)/docs
+TOOLS_FOLDER=$(ROOT_FOLDER)/tools
+
+
+
 DEFAULT_GOAL := help
 help:
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z0-9_-]+:.*?##/ { printf "  \033[36m%-27s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
@@ -18,6 +28,7 @@ docker-clean: ## Remove the .env file for docker
 
 .PHONY: docker-init
 docker-init: .docker/.env ## Make sure the .env file exists for docker
+
 
 .PHONY: docker-build-from-scratch
 docker-build-from-scratch: docker-init ## Build all docker images from scratch, without cache etc. Build a specific image by providing the service name via: make docker-build CONTAINER=<service>
@@ -45,4 +56,16 @@ docker-up: docker-init ## Start all docker containers. To only start one contain
 .PHONY: docker-down
 docker-down: docker-init ## Stop all docker containers. To only stop one container, use CONTAINER=<service>
 	$(DOCKER_COMPOSE) down $(CONTAINER)
+
+
+.PHONY: generate-docs
+generate-docs: docker-init ## Stop all docker containers. To only stop one container, use CONTAINER=<service>
+	 docker run -it --rm \
+        -v $(TOOLS_FOLDER):/data  \
+        -v $(ROOT_FOLDER):/top_root  \
+        -v $(SRC_FOLDER):/here_source_a  \
+        -v $(DOCS_FOLDER):/here_output \
+        hexbatch_dev/doxygen; \
+	chmod -R a+r $(DOCS_FOLDER)
+
 

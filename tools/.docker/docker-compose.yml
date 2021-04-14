@@ -10,7 +10,7 @@ volumes:
 
 services:
   nginx:
-    image: gokabam-hexlet/nginx
+    image: hexbatch_dev/nginx
     build:
       context: .
       dockerfile: ./nginx/Dockerfile
@@ -32,7 +32,7 @@ services:
           - ${APP_HOST}
 
   php-fpm:
-    image: gokabam-hexlet/php-fpm
+    image: hexbatch_dev/php-fpm
     build:
       context: .
       dockerfile: ./php-fpm/Dockerfile
@@ -57,7 +57,7 @@ services:
       - backend
 
   workspace:
-    image: gokabam-hexlet/workspace
+    image: hexbatch_dev/workspace
     build:
       context: .
       dockerfile: ./workspace/Dockerfile
@@ -119,5 +119,15 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: "${DB_MYSQL_ROOTPASSWORD}"
+    networks:
+      - backend
+
+  doxygen:
+    image: hexbatch_dev/doxygen
+    build:
+      context: .
+      dockerfile: ./doxygen/Dockerfile
+    volumes:
+      - ${APP_CODE_PATH_HOST}/data
     networks:
       - backend

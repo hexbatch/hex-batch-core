@@ -1,4 +1,8 @@
-# HEXLET
+# HEX Batch docker tools and environment
+
+to run this makefile from anywhere, use the C option to point how to get to this directory
+                
+    sudo make -C tools  generate-docs
 
 # Development backend
 
@@ -80,6 +84,11 @@ useful commands:
         
             sudo docker exec -it gokabam-hexlet_workspace_1 bash
 
+when working with a stopped container, and you need to start it again and work with the shell
+`sudo docker ps -a`  Find the container id
+`sudo docker start e0ba1489ed37`  start it again (replace with the valid container id or name you want)
+`sudo docker exec -it e0ba1489ed37 bin/bash` interact with it, you may need to change what you do here. This is for an ubuntu bash shell
+
 
 #Hacks and Fixes
 
@@ -112,6 +121,33 @@ see [Migration Commands](https://book.cakephp.org/4/en/phinx/commands.html#migra
 * `GOKABAM_ENVIRONMENT=development php vendor/bin/phinx create Object`
 * `GOKABAM_ENVIRONMENT=development php vendor/bin/phinx migrate -e development`
 * `GOKABAM_ENVIRONMENT=development php vendor/bin/phinx status`
+
+
+# doxygen
+
+build seperately (if needed)
+
+sudo make docker-build CONTAINER=doxygen
+
+make config file (if missing or need to redo)
+`docker run -it --rm -v $PWD:/data hexbatch_dev/doxygen -g Doxyfile`
+
+generate docs
+ use full paths, and then change permissions. The make function generate_docs will do this below
+
+
+    sudo docker run -it --rm \
+    -v /home/will/cpdocs/hex-batch-core/tools:/data  \
+    -v /home/will/cpdocs/hex-batch-core/src:/here_source_a  \
+    -v /home/will/cpdocs/hex-batch-core/docs:/here_output \
+    hexbatch_dev/doxygen
+
+`sudo chown -R will:will /home/will/cpdocs/hex-batch-core/docs`
+
+
+# useful links
+
+* [Make manual](https://www.gnu.org/software/make/manual/make.html)
 
 
 

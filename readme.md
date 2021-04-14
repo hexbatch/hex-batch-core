@@ -1,154 +1,133 @@
-# Hex Batch Core Library 0.5.0 Alpha.0   
+[TOC]
+
+# HexBatch Main Page
+
+current version is pre-alpha-0.5.0
+
+## Todo docker
+
+@todo get entire compile and emscripten toolchain up and running via docker containers, do not use local installed stuff!!
+
+@todo get mongodb and sql-lite running as different containers
+
+@todo update mysql,phpmysadmin and other older containers to use the latest and best
+
+@todo add in git modules for parts of the website, run by the docker nginx, add the shell game and the front page
+
+@todo have a self signed ssl cert for localhost in the .env.example file and folder
+
+@todo add in a testing suit I like as a container and be able to hook it up to the automated tests
+
+## Todo git commit chain
+
+@todo when doing any sort of commit, rebuild the docs using the `sudo make -C tools  generate-docs`
 
 
-## Introduction
+@todo when ready to make a push to a protected branch [alpha,beta,release,master] and not just a mealy mouthed topic partial push,
+have tests run on source (unit + integrated) if any fail do not allow that push
 
-This allows many things to work with maps and space and time...
+@todo figure out a decent version path (do I just read it from the package.json when building and put it in a constant in the code , and use the same thing elewhere?)
 
-Hex Batch allows things to be organized with maps. Designed to allow a single map to be divided into areas, each controlled by a different server: this distributed library potentially manages billions of objects, having 3rd party connections, and time and space coordinates, be interacted with and manipulated . Providing an open sandbox type of programming using a type of biological logic which is not your traditional programming platform
-
-
-## Quick Concepts
-
-A list of all the high level ideas this library uses
+@todo build the docker image of this library from current source and run integration tests on that also
 
 
+## Todo building SELF Docker Image !
 
-*   / Traits
-  *   They are simple things that inherit from a single parent which is also a trait. Most of the data structures and logic here use traits as a basic building block to do more complicated ideas. Most of the searches use traits to select things
-*   @ Tags
-  *   Tags are traits which are used to add logic and organization to things
-*   🌐 Worlds
-  *   All trait based things exist in a world. There are different world types. Some worlds divide naturally to allow massive amounts of objects to be manipulated in a single combined world. Other worlds exist in the web browser page, or app, and know how to interact with other worlds - a thin client.  Still other worlds are stand alone. And yet another kind of world simply allows containers and special areas in host world
-*   ◓ Shards
-  *   Divides the world into geographical sections. A promise cannot operate across shards. Shards are important to split up servers that get too busy
-*   𝞴 Instances
-  *   Are the only such trait based structure which can move about to different coordinates in a world, and have a shape which is plotted on the map
-*   \# Interfaces
-  *   Control the bounds, creation and destruction of instances. Also a trait based structure
-*   𝞇 Promises
-  *   Instances run code inside a concept called a promise, which either succeeds and changes things outside of the promise afterwards. Or if it fails nothing is changed. Promises will collect instances from different areas and servers to do work on them. Promises is also how a lot of instances can move around
-*   ↝ Wind
-  *   How the things in the world (instances) are moved around
-*   🐚 Shells
-  *   Code is always run in shells, using elements
-*   💎 Gems
-  *   How we organize and find the shells
-*   🏭 Mills
-  *   What elements, instances, interfaces, and shells are made out of. These are based on combinations of traits working together. Mills use busses, boxes, and logic
-*   🚌 Bus
-  *   Part of a mill, helps connect , expose, hide and organize the traits. Tagging and grouping is done here
-*   📦 Box
-  *   Part of a mill, stores data and has  details for data used in the bus
-*   ⚙ Logic
-  *   Part of a mill,  has rules of what to do with traits used internally, based on tags and changes on the bus. Can do api calls or call services outside the library to get or set data
-*   ≣ Stacks
-  *   When a mill produces items, the copies are on the stack
-*   𝝮 Groups
-  *   Made from a stack, makes collections
-*   ♟ Element
-  *   Made from a mill template, allows us to do dynamic coding. Elements use gloms and targets , in addition to the standard logic, bus and box
-*   ☎ Gloms
-  *   Part of an element. Gloms find targets, and then suck that data into a box for use for targets, or doing tag, bus or logic stuff. An element can have 0 to many gloms
-*   ◎ Targets
-  *   Part of an element. Targets are what gloms find, the element fills up a target with data to be read by the glom
-*   📎 Hooks
-  *   Run when certain things happen. Helps add rate limits and special logic, some event handling, cron jobs
-*   ‼ Permission
-  *   Tells which traits can see, and work with, other traits. Everything needs permission to do anything
-*   ∫ Selections
-  *   Searches, Moves around, and organizes trait data structures
-*   📣 Semaphores
-  *   synchronizes things running in shells
-*   ↪ Turns
-  *   Instead of continually moving and doing things. The library does a certain number of steps to process and move things, and then starts again. Each of these cycles of operation is called a turn. The turn number starts at 0 and goes on to infinity , or until the worlds is reset or stops
+@todo Have docker image for running the built library! There should also be a docker images for the three different builds (standard, mongo, wasm)
+
+in the tools/ one of the docker containers should be running this library , and the library should be the one just built
+it should use the source code
+
+@todo integeration tests should be run again inside the docker container as part of its build step, these are the tests associated with that version it built
 
 
-## Other Data Structures
+## Shared Settings
+
+@todo CLion IDE settings : need to share build settings and to-do lists and spelling
+
+@todo spelling in dictionaries should be shared too
 
 
-### ⌚ Time
+# Conventions
+\section HexbatchConventions  HexBatch Conventions!
 
-Time is set by both the clock and calendar; or by the turn number the library is on.
+## Source Code
 
+Any tool needed by this project must be from a container, to make it easy for anyone to have a full environment up and running
 
-
-*   When specifying a range of time you can use an array of {start:, end:} in json where these are exact times.
-*   When needing to set a periodic start and stop range, you can use the crontab format. An array of  {crontab:} . You can use crontab format for times only
-*   For periodic turns, there is a different format related to crontab but , of course only uses turns with each position using a different turn range
-*   When needing to set time via the turn number you can use the integer value of the turn. Turns are not used in time ranges in the api, but can be used in the logic of the elements and hook events
+all source file/folder, and test file/folder names use underscore and not dash ! Sad, I know
 
 
-### 💠 📍 Area and Location
+all header and source file names have the folder path in the first part of their names, and the regular name as the last part, regular name is one word:
+example: hexbatch_api_main.h  (will be a header at the top of the src/hexbatch/api)
+hexbatch_api_topsoil_fungly.cpp ( will be  src/hexbatch/api/topsoil/hexbatch_api_topsoil_fungly.cpp )
+Class names are same as file names, except snake case in place of underscores
+Namespaces are same as file names when needed
+the top namespace is hexbatch, the root of the sources
 
-All coordinates are in lat,lng and use GeoJson json notation for both area and position. Internally, all area is stored in multi-polygons
+unit tests need to have .test. as the last part of their name, before the extension
 
-
-### 🆔 GUIDS and Identification
-
-Almost all the major concepts mentioned above in the quick concepts individually have their own unique id. These guids are used in the api to specify something unless you use the trait names.
-
-Names can be any unicode (see exceptions below). Since all traits have a parent, you can map out the name, starting with the furthest ancestor. Since everything starts with root, we always leave out root in the name path. Notice that names can be reused as long as two siblings do not share the same name. But siblings cannot have names that differ in only minor, hard to read, details. For example aPP1e and apple cannot be used by two siblings having the same parent. Whitespace and punctuation in names are not allowed. Dashes and underscores are allowed but are considered hard to distinguish so considered as mixed cases when comparing sibling names.
-
-
-
-*   Example of a guid 12345678-1234-5678-1234-567812345678
-*   Example of a name path red.beans.and.rice
+integrated tests (like when testing the library response in its api) are in the tests folder and tests for hexbatch are in that folder
+each integrated test should be in a folder of the api family, then the folder for the name of the api call, then named for what they try to do
+example: tests/hexbatch/user_accounts/get_default_sudo/get_guid.xpp
 
 
-### 𝚫 Data Json Structure inside Traits and Elements
-
-Of course this library stores data. Lots of it. This regular data is always stored in Json format. Since the data will be a mix of many different , and sometimes incompatible things. We do our own typecasting. Since these types are juggled in both the code and sql to fit together when possible , if they are combined into one operation. If a value cannot have something done to it, then its marked as an error
-
-Each value is stored in the following json format :
-
-{data_type:,data_bounds:, data_flags:, data_value: }
-
-any arrays or objects stored directly will be stored as json , and will be seen as json and not a primitive type. However, for storing json, you can add your own json schema, and use the name of that to be your type
+all super secret passwords and certs will be in the .env , add in ability to store longer things (like ssl certs in a .env folder!)
 
 
+## Git
 
-1. data_type
-  1. signed integer
-  2. unsigned int
-  3. decimal
-  4. string
-  5. date/time string format (of a list of standard formats)
-  6. base64 string
-  7. boolean
-  8. json
-  9. register-json-schema (this registers a json schema type for use elsewhere)
-    *   Geo Json is an automatically registered mime type
-  10. [any mime type]
-  11. [any registered json schema type]
-2. data_bounds
-  12. for string, regex
-  13. for string, regex flags
-  14. for all numbers, min and max, and multiples
-  15. for decimals , range on each side
-3. data_flags
-  16. is base 64 encoded
-  17. name of json schema being registered
-4. data_value
-  18. where the goodies are stored
+git branches that are protected: alpha/*, beta/*, master, release/*
+
+the alpha, beta and release branches share the same version number as the name so alpha/1.0.1.x beta/1.0.1.x release/1.0.1.x
+
+### Alpha 
+
+new alpha branch is spun off from master it has the current version of 3 plus a 0 for x , so 1.0.1.0
+
+issues solved in alpha are done in topic branches, then put in master, and then new alpha branch is made with x bumped up so alpha/1.0.1.1.
+
+Old alpha branch of 1.0.1.0 is deleted off origin
 
 
-## Storage of Data Structures
+### Beta
 
-This library is meant to run on servers, as well as browsers and other environments. So, we cannot always have a nice database. Or the database being used might be lacking in features. So, the defined data structures can be stored in many different ways.
+Once the current alpha branch looks stable enough a new beta branch is spun off that alpha, and has the same version of 4, so beta/1.0.1.1
 
-To make this work without having to recode anything, there is a data layer which can be dynamically or statically linked into the program. This layer handles all trigger and storage and mass sql queries and updates,  and allows us to not worry about if the data is organized into db tables, or json structures or even plain text files with serialized structures
+Bugs will be found in beta. When, during beta testing issues are fixed in topics, then they are pushed to master and not to this branch. 
 
-As a result, in the specification, the things needed for normal db life: primary keys, foreign keys, automatic timestamps,indexes are left out. But, each section does have a list of things that need to be implemented by the data layer . If some requirement is left out of the data layer, then its expected to be implemented in the code
+And a new alpha branch is made with x (2 for example) bumped up again (and the older alpha removed)
 
+the new beta branch from the fixes in alpha branch is created (so now beta/1.0.1.2 is here and the older beta/1.0.1.1 is removed from origin)
 
-## ‼ Permission Concepts
+Keep cycling like that until we get a beta that passes ok (so for example beta/1.0.1.23)
 
-Each api call here uses a trait id, given to it, as a context seeing if the requested can be done. Since traits are hierarchical , a user for the library will start out with their most privileged trait, and then use that to create or manage other traits that they either create, or are allowed to interact with.
+### Release
 
-Most permissions boil down to : Can I see the trait ? Can I read the trait ? Can I write to the trait ? But there are some other permissions that facilitate some specific operations. They will be listed later
+when release is ready, the release branch is spun off from the beta branch , made release/1.0.1.23 and its distributed and the master branch has that tag now at the last commit
 
-Hex Batch is not meant to be run alone when different users are managing their own things here. However, it is  easy to add a user auth layer and assign each user to have their own trait guid. It's also very easy to create admin, super, power and regular users with this strategy
+The release branch’s lifetime ends when its replaced by another release.
+
+### Rules to live by:
+
+only one alpha, beta, release branch exists at the same time
+
+the tags in master are made to mark where each alpha , beta and release was spun off at (with same name as branch, I think?)
+
+there is a constantly updated tag on master that points to the most current alpha, beta, and release and they are named just with that word
+
+commits to master must pass all unit tests, and integrated source tests, and have its docker image of the library for current source pass its integration tests
+
+#### Pre Alpha ignores these
+pre-alpha branches escape all of these rules, as development is too fast and chaotic for all this nonsense of well established work flow.
+
+Chaos rules!
+
+With one important exception: any commit to the master branch must pass tests and be able to build a container that passes tests.
+
+This means no updates to master until we have tests actually existing (or at least one!) and a container that actually works with the current version (such is) library
+
+There can be multiple pre-alpha branches, but not more than three at any time. Also there needs to be a current tag called pre-alpha
 
 
 
@@ -156,18 +135,13 @@ Hex Batch is not meant to be run alone when different users are managing their o
 
 ### Doxygen
 * [doxygen](https://www.doxygen.nl/manual/autolink.html)
-  * [Examples with how to do some page things](http://www.gerald-fahrnholz.eu/sw/DocGenerated/HowToUse/html/group___grp_about_this_doc_link_pages.html)
-  * [Examples with some other things](https://root.cern/for_developers/doxygen/)  
-  * [Making different todo lists](https://www.doxygen.nl/manual/commands.html#cmdxrefitem)  
-  * [Doxygen Config file stuff](https://www.doxygen.nl/manual/config.html)  
+    * [Examples with how to do some page things](http://www.gerald-fahrnholz.eu/sw/DocGenerated/HowToUse/html/group___grp_about_this_doc_link_pages.html)
+    * [Examples with some other things](https://root.cern/for_developers/doxygen/)
+    * [Making different todo lists](https://www.doxygen.nl/manual/commands.html#cmdxrefitem)
+    * [DOxygen Config file stuff](https://www.doxygen.nl/manual/config.html)
+    * [Mark down in DOxygen](https://www.doxygen.nl/manual/markdown.html)
 
-  * [docker for doxygen that is mostly current](https://hub.docker.com/r/hrektts/doxygen) 
-    * might need to be customized
-    
-  * [How to install doxygen from sources on Ubuntu](https://github.com/doxygen/doxygen/issues/8054)
-    * Excellent description and can try to install on a fresh ubuntu 20.04 (was for 18.04).
-      This might be a bit of a hassle, taking 2 or 3 hours, but I want the most recent versions
-    
+
 
 
 ### Emscripten
@@ -186,7 +160,7 @@ Hex Batch is not meant to be run alone when different users are managing their o
 
 #### SQL Lite
 * [SQL Lite ](https://github.com/sql-js/sql.js/)
- * For when using on phones and browsers
+* For when using on phones and browsers
 
 #### Mongo
 
@@ -197,13 +171,10 @@ Hex Batch is not meant to be run alone when different users are managing their o
 
 
 
-
-
-
 ### Json
 * [Mysql uses draft 4 of the json schema](https://json-schema.org/learn/getting-started-step-by-step.html)
-   * so can enforce minimal json structures
-    
+    * so can enforce minimal json structures
+
 
 ### Swagger
 
@@ -214,3 +185,10 @@ swagger I am not using right now but keep this for later
 
 ### Conventions
 *[google](https://google.github.io/styleguide/cppguide.html)
+
+
+
+
+
+
+
