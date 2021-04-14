@@ -30,4 +30,5 @@ var menudata={children:[
 {text:"File Members",url:"globals.html",children:[
 {text:"All",url:"globals.html"},
 {text:"Functions",url:"globals_func.html"}]}]},
-{text:"Examples",url:"examples.html"}]}
+{text:"Examples",url:"examples.html"},
+{text:"Spec List",url:"Specification.html"}]}
