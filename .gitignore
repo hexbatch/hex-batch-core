@@ -1,14 +1,17 @@
-# IntelliJ
+# Exclude IntelliJ files, they will be recreated from the build files.
 *.iml
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/assetWizardSettings.xml
-.idea/dictionaries
 .idea/libraries
 .idea/caches
 .idea/modules.xml
 .idea/navEditor.xml
+
+
+# But keep dictionaries to have less false positives in spellcheck inspection.
+!.idea/dictionaries
 
 # CMake
 cmake-build-*/

@@ -26,9 +26,12 @@ current version is pre-alpha-0.5.0
 @todo when ready to make a push to a protected branch [alpha,beta,release,master] and not just a mealy mouthed topic partial push,
 have tests run on source (unit + integrated) if any fail do not allow that push
 
-@todo figure out a decent version path (do I just read it from the package.json when building and put it in a constant in the code , and use the same thing elewhere?)
+@todo figure out a decent version path 
+(do I just read it from the package.json when building and put it in a constant in the code , and use the same thing elewhere?)
 
 @todo build the docker image of this library from current source and run integration tests on that also
+
+@todo share the ide settings for the tool chain builds as they will depend on docker and have settings for the different outputs
 
 
 ## Todo building SELF Docker Image !
