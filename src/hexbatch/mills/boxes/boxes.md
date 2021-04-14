@@ -36,7 +36,7 @@ All boxes belong to a mill, but also have a unique trait that identifies them. T
 
 
 
-A mill can have data set, read or cleared, used in [user objects](@ref UserAccounts ) @todo here also
+A mill can have data set, read or cleared, used in [user objects](@ref UserAccounts ) 
 
-@spec  Mill boxes set read and clear data from text on the command line or via file contents
+@spec  Mill boxes need api to set read and clear data from text on the command line or via file contents
 
