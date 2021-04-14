@@ -63,8 +63,8 @@ generate-docs: docker-init ## Stop all docker containers. To only stop one conta
 	 docker run -it --rm \
         -v $(TOOLS_FOLDER):/data  \
         -v $(ROOT_FOLDER):/top_root  \
-        -v $(SRC_FOLDER):/here_source_a  \
-        -v $(DOCS_FOLDER):/here_output \
+        -v $(SRC_FOLDER):/src  \
+        -v $(DOCS_FOLDER):/docs \
         hexbatch_dev/doxygen; \
 	chmod -R a+r $(DOCS_FOLDER)
 
