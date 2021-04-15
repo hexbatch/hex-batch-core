@@ -131,3 +131,19 @@ services:
       - ${APP_CODE_PATH_HOST}/data
     networks:
       - backend
+
+  cpp_reg_building:
+    image: hexbatch_dev/cpp_reg_building
+    build:
+      context: .
+      dockerfile: ./cpp_reg_building/Dockerfile
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    cap_add:
+      - SYS_PTRACE
+    ports:
+      - '2222:22'
+    privileged: true
+    networks:
+      - backend

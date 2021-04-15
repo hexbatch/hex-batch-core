@@ -33,6 +33,8 @@ have tests run on source (unit + integrated) if any fail do not allow that push
 
 @todo share the ide settings for the tool chain builds as they will depend on docker and have settings for the different outputs
 
+@todo automate changing the tags of pre-alpha, alpha, beta , and current-release when pushing those branches to origin
+
 
 ## Todo building SELF Docker Image !
 
