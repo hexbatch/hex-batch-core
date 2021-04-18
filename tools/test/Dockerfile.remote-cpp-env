@@ -4,6 +4,7 @@
 #   docker build -t clion/remote-cpp-env:0.5 -f Dockerfile.remote-cpp-env .
 #   docker run -d --cap-add sys_ptrace -p127.0.0.1:1998:22 --name clion_remote_env clion/remote-cpp-env:0.5
 #   ssh-keygen -f "$HOME/.ssh/known_hosts" -R "[127.0.0.1]:1998"
+#    ssh -o PubkeyAuthentication=no user@127.0.0.1 -p 1998
 #
 # stop:
 #   docker stop clion_remote_env
@@ -11,7 +12,7 @@
 # ssh credentials (test user):
 #   user@password
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get -y install tzdata
 
