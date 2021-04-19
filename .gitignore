@@ -84,6 +84,8 @@ local.properties
 !/edocs/.keep
 !/edocs/index.html
 
+
+
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
@@ -92,3 +94,4 @@ local.properties
 /Test DB Docker/
 /test-docker/
 
+/Debug-Emcc/

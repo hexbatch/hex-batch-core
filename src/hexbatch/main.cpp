@@ -61,8 +61,9 @@ int main()
     IPbuffer = inet_ntoa(*((struct in_addr*)
             host_entry->h_addr_list[0]));
 
-    printf("Hostname is: %s\n", hostbuffer);
-    printf("Host IP: %s", IPbuffer);
+    printf("hello\n");
+    printf("My Hostname is: %s\n\n", hostbuffer);
+    printf("Host IP: %s\n", IPbuffer);
 
     return 0;
 }

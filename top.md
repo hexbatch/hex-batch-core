@@ -6,11 +6,15 @@ current version is pre-alpha-0.5.0
 
 ## Todo docker
 
-@todo get entire compile and emscripten toolchain up and running via docker containers, do not use local installed stuff!!
+### EMC
+
+* use `docker pull emscripten/emsdk` to get the container to compile wasm
+* compiled wasm and js target is now temporary put into the tools/wasm folder for display in the web 
+
 
 @todo get mongodb and sql-lite running as different containers
 
-@todo update mysql,phpmysadmin and other older containers to use the latest and best
+@todo update mysql,phpmysadmin to use the latest and best
 
 @todo add in git modules for parts of the website, run by the docker nginx, add the shell game and the front page
 
@@ -145,6 +149,7 @@ There can be multiple pre-alpha branches, but not more than three at any time. A
     * [Making different todo lists](https://www.doxygen.nl/manual/commands.html#cmdxrefitem)
     * [DOxygen Config file stuff](https://www.doxygen.nl/manual/config.html)
     * [Mark down in DOxygen](https://www.doxygen.nl/manual/markdown.html)
+    
 
 
 
@@ -152,6 +157,12 @@ There can be multiple pre-alpha branches, but not more than three at any time. A
 ### Emscripten
 
 * [emscripten](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html)
+* [step by step instructions to compile and link by hand](https://medium.com/@tdeniffel/pragmatic-compiling-from-c-to-webassembly-a-guide-a496cc5954b8)
+* [very old hint how to do this for toolchain](https://emscripten-discuss.narkive.com/bQqV420g/emscripten-and-eclipse)
+* [how to use it in large project](https://emscripten.org/docs/compiling/Building-Projects.html#integrating-with-a-build-system)
+* [docker image](https://github.com/trzecieu/emscripten-docker)
+* [offical docker image, will use version EMSCRIPTEN_VERSION=2.0.16](https://hub.docker.com/r/emscripten/emsdk)
+* [old mailing list](https://emscripten-discuss.narkive.com/)
 
 ### Database
 
