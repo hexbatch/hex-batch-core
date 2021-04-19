@@ -1,6 +1,6 @@
 # HEX Batch docker tools and environment
 
-to run this makefile from anywhere, use the C option to point how to get to this directory
+to run this makefile from anywhere, use the C option to point how to get to this directory. Its important to run as sudo or else the generated folder will be set to root on many systems
                 
     sudo make -C tools  generate-docs
 

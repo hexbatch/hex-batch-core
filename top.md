@@ -191,6 +191,10 @@ swagger I am not using right now but keep this for later
 ### Conventions
 *[google](https://google.github.io/styleguide/cppguide.html)
 
+### Eclipse Tooling
+*[Running Built inside a container](https://www.eclipse.org/community/eclipse_newsletter/2017/april/article1.php)
+*[More older but helful instructions](https://jaxenter.com/docker-tooling-in-eclipse-2-124200.html)
+
 
 
 

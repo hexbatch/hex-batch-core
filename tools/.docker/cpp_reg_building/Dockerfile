@@ -1,40 +1,4 @@
-# CLion remote docker environment (How to build docker container, run and stop it) https://github.com/JetBrains/clion-remote
-# from https://github.com/JetBrains/clion-remote/blob/master/Dockerfile-alpine
-# Build and run:
-#   docker build -t clion/remote-alpine:1.0 -f Dockerfile-alpine .
-#   docker run -d --cap-add sys_ptrace --privileged -p127.0.0.1:2222:22 clion/remote-alpine:1.0
-#   ssh-keygen -f "$HOME/.ssh/known_hosts" -R "[localhost]:2222"
-#
-# stop:
-#   docker stop clion_remote_env
-#
-# ssh credentials (test user):
-#   root@root
-
 FROM alpine:latest
 
-RUN apk add --update openssh gcc g++ clang gdb cmake make tar rsync python3 \
+RUN apk add --update gcc g++ clang gdb cmake make tar \
   && rm  -rf /tmp/* /var/cache/apk/*
-
-RUN echo "root:root" | chpasswd
-
-RUN ( \
-	echo 'Port 22'; \
-	echo '#AddressFamily any'; \
-	echo '#ListenAddress 0.0.0.0'; \
-	echo '#ListenAddress ::'; \
-	echo 'HostKey /etc/ssh/ssh_host_rsa_key'; \
-	echo 'HostKey /etc/ssh/ssh_host_dsa_key'; \
-	echo 'HostKey /etc/ssh/ssh_host_ecdsa_key'; \
-	echo 'HostKey /etc/ssh/ssh_host_ed25519_key'; \
-	echo 'PermitRootLogin yes'; \
-	echo '#PasswordAuthentication yes'; \
-	echo 'AuthorizedKeysFile .ssh/authorized_keys'; \
-	echo 'Subsystem sftp /usr/lib/ssh/sftp-server'; \
-  ) > /etc/sshd_config_test_clion
-
-RUN /usr/bin/ssh-keygen -A
-RUN ssh-keygen -t rsa -b 4096 -f  /etc/ssh/ssh_host_key
-
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D", "-f", "/etc/sshd_config_test_clion","--privileged"]

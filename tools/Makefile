@@ -9,7 +9,7 @@ ROOT_FOLDER:=$(realpath $(MK_PATH)../)
 
 
 SRC_FOLDER=$(ROOT_FOLDER)/src
-DOCS_FOLDER=$(ROOT_FOLDER)/docs
+DOCS_FOLDER=$(ROOT_FOLDER)/edocs
 TOOLS_FOLDER=$(ROOT_FOLDER)/tools
 
 
@@ -64,7 +64,7 @@ generate-docs: docker-init ## Stop all docker containers. To only stop one conta
         -v $(TOOLS_FOLDER):/data  \
         -v $(ROOT_FOLDER):/top_root  \
         -v $(SRC_FOLDER):/src  \
-        -v $(DOCS_FOLDER):/docs \
+        -v $(DOCS_FOLDER):/edocs \
         hexbatch_dev/doxygen; \
 	chmod -R a+r $(DOCS_FOLDER)
 

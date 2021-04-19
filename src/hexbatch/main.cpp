@@ -30,6 +30,9 @@ void checkHostEntry(struct hostent * hostentry)
 
 
 //Hexbatch
+/*
+ * This is added to test sync tool
+ */
 
 /// \file
 
