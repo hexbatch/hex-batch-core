@@ -16,7 +16,8 @@ TOOLS_FOLDER=$(ROOT_FOLDER)/tools
 SQL_FOLDER=$(ROOT_FOLDER)/database/mysql
 SQL_ENV_FILE=$(ROOT_FOLDER)/tools/.docker/.env
 
-
+include $(DOCKER_COMPOSE_DIR)/.env
+export
 
 
     
@@ -85,5 +86,12 @@ sql-migrations: docker-init ## migrate the mysql database, use ACTION="<action>"
 		--network hexbatch_dev_backend \
 		hexbatch_dev/phinx $(ACTION); \
 	chmod -R a+rw $(SQL_FOLDER)
+	
+.PHONY: copy-sql-schema
+copy-sql-schema: docker-init ## export the sql schema
+	docker exec hexbatch_dev_db_1 \
+	sh -c 'exec mysqldump $(DB_MYSQL_DATABASE) -u$(DB_MYSQL_USER) -p"$(DB_MYSQL_PASSWORD)"\
+	 --routines --triggers --no-tablespaces --no-data'\
+	  > $(SQL_FOLDER)/schema/schema.sql	
 
 

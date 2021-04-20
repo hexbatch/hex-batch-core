@@ -31,9 +31,10 @@ current version is pre-alpha-0.5.0
   * [phinx documentation](https://book.cakephp.org/phinx/0/en/contents.html)
   * Migrations MUST be written in php, using the phinx library
   * The phinx manages the migrations in the database/mysql/schema/migrations folder
-  * The db can be manually entered into by going into the running mysql container (whose state is preserved in the docker volume), using the command `docker exec -it hexbatch_dev_db_1 bash`
-  * To make a db dump
-    `docker exec hexbatch_dev_db_1 sh -c 'exec mysqldump $(DB_MYSQL_DATABASE) -u$(DB_MYSQL_USER) -p"$(DB_MYSQL_PASSWORD)" --routines --triggers' > /database/mysql/schema/schema.sql`
+  * The db can be manually entered into by going into the running mysql container (whose state is preserved in the docker volume), using the command 
+    * `docker exec -it hexbatch_dev_db_1 bash`
+  * To make a db dump `make -C tools copy-sql-schema`
+    
   
   @todo new make task to dump the db schema to the schema.sql    
 
