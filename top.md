@@ -23,32 +23,43 @@ current version is pre-alpha-0.5.0
     * extension is `js`  
     
     
-###SQL Migrations
+###SQL And Migrations
 
-  * Managed by the phinx container, which is part of the docker compose setup here
-  * `sudo ACTION="migrate" make -C tools sql-migrations`
-  * the command to the phinx goes in the action quotes
-  * [phinx documentation](https://book.cakephp.org/phinx/0/en/contents.html)
-  * Migrations MUST be written in php, using the phinx library
-  * The phinx manages the migrations in the database/mysql/schema/migrations folder
-  * The db can be manually entered into by going into the running mysql container (whose state is preserved in the docker volume), using the command 
+####DB TOOLS
+
+* MYSQL (or drop in Maria DB) is found in the docker image **hexbatch_dev/db** and can be set to run with the command
+* `make -C tools docker-up CONTAINER=db`
+    * MySQL Admin is run from the docker image **hexbatch_dev/phpmyadmin** and can be set to run with the command
+* `make -C tools docker-up CONTAINER=phpmyadmin`
+    * Migrations are Managed by the phinx container, which is part of the docker compose setup here
+* `make -C tools docker-up CONTAINER=phinx`
+  * To run migration commands:  
+    * `sudo ACTION="migrate" make -C tools sql-migrations`
+* To make a schema dump
+     * `make -C tools copy-sql-schema`
+* The db can be manually entered into by going into the running mysql container (whose state is preserved in the docker volume), using the command 
     * `docker exec -it hexbatch_dev_db_1 bash`
-  * To make a db dump `make -C tools copy-sql-schema`
+  
+    
+    
+####Migrations
+
+
+`sudo ACTION="migrate" make -C tools sql-migrations`
+
+* sudo is needed on some setups as the generated file is made under root conditions 
+* the command to the phinx goes in the action quotes. It can be any command
+* [phinx documentation](https://book.cakephp.org/phinx/0/en/contents.html)
+* The phinx setup is in the yaml file
+* Migrations MUST be written in php, using the phinx library
+* The phinx manages the migrations in the database/mysql/schema/migrations folder
+* If there is any constant data to be put into the db, then it should be managed by phinx in the seeds 
     
   
-  @todo new make task to dump the db schema to the schema.sql    
-
-
-
-
-
-
-
-
+###  Mongo 
 
 @todo get mongodb and sql-lite running as different containers
 
-@todo update mysql,phpmysadmin to use the latest and best
 
 @todo add in git modules for parts of the website, run by the docker nginx, add the shell game and the front page
 
