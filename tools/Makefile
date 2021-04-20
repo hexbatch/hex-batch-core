@@ -13,6 +13,13 @@ DOCS_FOLDER=$(ROOT_FOLDER)/edocs
 TOOLS_FOLDER=$(ROOT_FOLDER)/tools
 
 
+SQL_FOLDER=$(ROOT_FOLDER)/database/mysql
+SQL_ENV_FILE=$(ROOT_FOLDER)/tools/.docker/.env
+
+
+
+
+    
 
 DEFAULT_GOAL := help
 help:
@@ -59,7 +66,7 @@ docker-down: docker-init ## Stop all docker containers. To only stop one contain
 
 
 .PHONY: generate-docs
-generate-docs: docker-init ## Stop all docker containers. To only stop one container, use CONTAINER=<service>
+generate-docs: docker-init ## Generate the docs from Doxygen, puts them into the edocs folder, which is ignored. When you want save the docs, then update the docs subrepo
 	 docker run -it --rm \
         -v $(TOOLS_FOLDER):/data  \
         -v $(ROOT_FOLDER):/top_root  \
@@ -67,5 +74,16 @@ generate-docs: docker-init ## Stop all docker containers. To only stop one conta
         -v $(DOCS_FOLDER):/edocs \
         hexbatch_dev/doxygen; \
 	chmod -R a+r $(DOCS_FOLDER)
+	
+	
+
+.PHONY: sql-migrations
+sql-migrations: docker-init ## migrate the mysql database, use ACTION="<action>" before make command
+	docker run -it --rm \
+	    --env-file /home/will/hexbatch/hex-batch-core/tools/.docker/.env \
+		-v $(SQL_FOLDER):/app \
+		--network hexbatch_dev_backend \
+		hexbatch_dev/phinx $(ACTION); \
+	chmod -R a+rw $(SQL_FOLDER)
 
 

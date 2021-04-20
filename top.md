@@ -6,10 +6,43 @@ current version is pre-alpha-0.5.0
 
 ## Todo docker
 
-### EMC
+### EMS
 
 * use `docker pull emscripten/emsdk` to get the container to compile wasm
 * compiled wasm and js target is now temporary put into the tools/wasm folder for display in the web 
+* tool chain, copy the debug
+  * in project setttings: c/c++ build, put the new chain you made
+  * tool settings tab:
+    * gcc++ compiler: put `emcc` as the command
+    * gcc c++ linker: put `emcc  -o hexbatch-core.js` as the command
+  * container settings tab:
+    * do the image for the emscripten/emsdk:latest
+  * build steps tab 
+    * prebuild steps command: `./emconfigure ./configure;./emmake make`
+  * build artifact tab:
+    * extension is `js`  
+    
+    
+###SQL Migrations
+
+  * Managed by the phinx container, which is part of the docker compose setup here
+  * `sudo ACTION="migrate" make -C tools sql-migrations`
+  * the command to the phinx goes in the action quotes
+  * [phinx documentation](https://book.cakephp.org/phinx/0/en/contents.html)
+  * Migrations MUST be written in php, using the phinx library
+  * The phinx manages the migrations in the database/mysql/schema/migrations folder
+  * The db can be manually entered into by going into the running mysql container (whose state is preserved in the docker volume), using the command `docker exec -it hexbatch_dev_db_1 bash`
+  * To make a db dump
+    `docker exec hexbatch_dev_db_1 sh -c 'exec mysqldump $(DB_MYSQL_DATABASE) -u$(DB_MYSQL_USER) -p"$(DB_MYSQL_PASSWORD)" --routines --triggers' > /database/mysql/schema/schema.sql`
+  
+  @todo new make task to dump the db schema to the schema.sql    
+
+
+
+
+
+
+
 
 
 @todo get mongodb and sql-lite running as different containers
@@ -205,6 +238,7 @@ swagger I am not using right now but keep this for later
 ### Eclipse Tooling
 *[Running Built inside a container](https://www.eclipse.org/community/eclipse_newsletter/2017/april/article1.php)
 *[More older but helful instructions](https://jaxenter.com/docker-tooling-in-eclipse-2-124200.html)
+* [general cdt faq](https://wiki.eclipse.org/CDT/User/FAQ)
 
 
 

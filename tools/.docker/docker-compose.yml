@@ -121,6 +121,22 @@ services:
       MYSQL_ROOT_PASSWORD: "${DB_MYSQL_ROOTPASSWORD}"
     networks:
       - backend
+      
+  phinx:    
+    image: hexbatch_dev/phinx
+    build:
+      context: .
+      dockerfile: ./phinx/Dockerfile
+    depends_on:
+      - db
+    environment:
+      - PHINX_DBNAME=${DB_MYSQL_DATABASE}
+      - PHINX_DBUSER=${DB_MYSQL_USER}
+      - PHINX_DBPASS=${DB_MYSQL_PASSWORD}
+      - GK_MYSQL_PORT=${DB_MYSQL_OWNPORT}
+      - PHINX_DBHOST=db
+    networks:
+      - backend
 
   doxygen:
     image: hexbatch_dev/doxygen

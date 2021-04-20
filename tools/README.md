@@ -3,6 +3,8 @@
 to run this makefile from anywhere, use the C option to point how to get to this directory. Its important to run as sudo or else the generated folder will be set to root on many systems
                 
     sudo make -C tools  generate-docs
+    
+    ACTION="migrate" make -C tools sql-migrations
 
 # Development backend
 
@@ -93,10 +95,12 @@ when working with a stopped container, and you need to start it again and work w
 #Hacks and Fixes
 
 * When the docker db is first created, it uses the new authencation method, which php 7.3 does not recognize. To fix this log into the db terminal as root:
-    ```mysql
-    ALTER USER 'gokabam_hexlet'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
-    ```
+		    ```mysql
+		    ALTER USER 'gokabam_hexlet'@'%' IDENTIFIED WITH mysql_native_password BY '2fancy4pants';
+		    ```
   
+* if need to debug container that will not start, then make a new thing and enter it
+   			`docker run -it --rm --entrypoint sh hexbatch_dev/phinx`  
   
 #PHP Composer Dependencies 
 
