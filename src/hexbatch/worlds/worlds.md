@@ -80,7 +80,7 @@ There are some edge cases to importing and exporting.
 
     Routers also synchronize the turns for each sister world. At the end of a turn, the sister world sends a notification to the router, and waits to be synced by the router. The router in turn, once all the sister worlds have ended their turns, will collect the sync files and call each sister to synchronize. At this time the imports and exports will be done, as the router makes a list of what to ask for and pass on. Once the sister world is synced, the router will tell it to start the next turn. While the router has all the stacks, the sisters only synchronize the static data, the trait data, etc
 
-    Because the router is not processing its turns, but simply passing data back and forth, its more likely that the database engine will be something like **[https://docs.mongodb.com/manual/](https://docs.mongodb.com/manual/) ** instead of a regular relational database that the library would normally use on the server. As the router will mostly pass on and manage json data
+    Because the router is not processing its turns, but simply passing data back and forth, the database it uses can be optimized for json lookup on those tables. As the router will mostly pass on and manage json data
 
     Each Sister only has one router it reports to
 

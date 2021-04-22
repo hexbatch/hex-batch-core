@@ -4,61 +4,11 @@
 
 current version is pre-alpha-0.5.0
 
-## Todo docker
-
-### EMS
-
-* use `docker pull emscripten/emsdk` to get the container to compile wasm
-* compiled wasm and js target is now temporary put into the tools/wasm folder for display in the web 
-* tool chain, copy the debug
-  * in project setttings: c/c++ build, put the new chain you made
-  * tool settings tab:
-    * gcc++ compiler: put `emcc` as the command
-    * gcc c++ linker: put `emcc  -o hexbatch-core.js` as the command
-  * container settings tab:
-    * do the image for the emscripten/emsdk:latest
-  * build steps tab 
-    * prebuild steps command: `./emconfigure ./configure;./emmake make`
-  * build artifact tab:
-    * extension is `js`  
-    
-    
-###SQL And Migrations
-
-####DB TOOLS
-
-* MYSQL (or drop in Maria DB) is found in the docker image **hexbatch_dev/db** and can be set to run with the command
-* `make -C tools docker-up CONTAINER=db`
-    * MySQL Admin is run from the docker image **hexbatch_dev/phpmyadmin** and can be set to run with the command
-* `make -C tools docker-up CONTAINER=phpmyadmin`
-    * Migrations are Managed by the phinx container, which is part of the docker compose setup here
-* `make -C tools docker-up CONTAINER=phinx`
-  * To run migration commands:  
-    * `sudo ACTION="migrate" make -C tools sql-migrations`
-* To make a schema dump
-     * `make -C tools copy-sql-schema`
-* The db can be manually entered into by going into the running mysql container (whose state is preserved in the docker volume), using the command 
-    * `docker exec -it hexbatch_dev_db_1 bash`
-  
-    
-    
-####Migrations
+Tools Directions are at 
+[tools.md](tools/tools.md)
 
 
-`sudo ACTION="migrate" make -C tools sql-migrations`
-
-* sudo is needed on some setups as the generated file is made under root conditions 
-* the command to the phinx goes in the action quotes. It can be any command
-* [phinx documentation](https://book.cakephp.org/phinx/0/en/contents.html)
-* The phinx setup is in the yaml file
-* Migrations MUST be written in php, using the phinx library
-* The phinx manages the migrations in the database/mysql/schema/migrations folder
-* If there is any constant data to be put into the db, then it should be managed by phinx in the seeds 
-    
-  
-###  Mongo 
-
-@todo get mongodb and sql-lite running as different containers
+#Notes and TODO
 
 
 @todo add in git modules for parts of the website, run by the docker nginx, add the shell game and the front page
@@ -87,10 +37,7 @@ have tests run on source (unit + integrated) if any fail do not allow that push
 
 ## Todo building SELF Docker Image !
 
-@todo Have docker image for running the built library! There should also be a docker images for the three different builds (standard, mongo, wasm)
-
-in the tools/ one of the docker containers should be running this library , and the library should be the one just built
-it should use the source code
+@todo there needs to be a docker running this library , after its compiled
 
 @todo integeration tests should be run again inside the docker container as part of its build step, these are the tests associated with that version it built
 
@@ -219,29 +166,11 @@ There can be multiple pre-alpha branches, but not more than three at any time. A
 #### Mysql
 * [Mysql and SLQLite Migrations (php)] (https://github.com/cakephp/phinx)
 
-#### SQL Lite
-* [SQL Lite ](https://github.com/sql-js/sql.js/)
-* For when using on phones and browsers
-
-#### Mongo
-
-* [Mongo Migrations (node)](https://softwareontheroad.com/database-migration-node-mongo/)
-* [Mongo driver for c++](https://github.com/mongodb/mongo-cxx-driver)
-* [Mongo Dump](https://docs.mongodb.com/database-tools/mongodump/)
-
-
-
-
-### Json
+#### Json
 * [Mysql uses draft 4 of the json schema](https://json-schema.org/learn/getting-started-step-by-step.html)
     * so can enforce minimal json structures
 
 
-### Swagger
-
-swagger I am not using right now but keep this for later
-
-* [Swagger JS Doc](https://github.com/Surnet/swagger-jsdoc)
 
 
 ### Conventions
@@ -251,6 +180,9 @@ swagger I am not using right now but keep this for later
 *[Running Built inside a container](https://www.eclipse.org/community/eclipse_newsletter/2017/april/article1.php)
 *[More older but helful instructions](https://jaxenter.com/docker-tooling-in-eclipse-2-124200.html)
 * [general cdt faq](https://wiki.eclipse.org/CDT/User/FAQ)
+
+### Make
+* [Make manual](https://www.gnu.org/software/make/manual/make.html)
 
 
 
