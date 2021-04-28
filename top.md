@@ -11,11 +11,8 @@ Tools Directions are at
 #Notes and TODO
 
 
-@todo add in git modules for parts of the website, run by the docker nginx, add the shell game and the front page
 
-@todo have a self signed ssl cert for localhost in the .env.example file and folder
-
-@todo add in a testing suit I like as a container and be able to hook it up to the automated tests
+@todo add in a testing suit for emscripten as a container and be able to hook it up to the automated tests
 
 ## Todo git commit chain
 
@@ -169,6 +166,13 @@ There can be multiple pre-alpha branches, but not more than three at any time. A
 #### Json
 * [Mysql uses draft 4 of the json schema](https://json-schema.org/learn/getting-started-step-by-step.html)
     * so can enforce minimal json structures
+    
+* [parse/write json](https://rapidjson.org/)   
+* [use on top of rapid for a better experience](https://github.com/Stiffstream/json_dto#getting-started)
+* [fast read only for large json](https://github.com/simdjson/simdjson) 
+
+#### GeoJson and 3d polygons
+* [list of links to c++ libraries and projects that deal with some of this stuff](https://github.com/sacridini/Awesome-Geospatial#c)
 
 
 
@@ -183,6 +187,11 @@ There can be multiple pre-alpha branches, but not more than three at any time. A
 
 ### Make
 * [Make manual](https://www.gnu.org/software/make/manual/make.html)
+* [baby make](http://www.firmcodes.com/linux/write-first-makefile-c-source-code-linux-tutorial/)
+
+### Services
+* [systemd setup](https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6)
+* [alpine commands](https://www.cyberciti.biz/faq/how-to-enable-and-start-services-on-alpine-linux/)
 
 
 

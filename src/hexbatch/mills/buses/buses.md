@@ -5,15 +5,10 @@ A Bus entry always belongs to a mill, although a mill does not need to have buse
 In general: buses provide a constant reference that others can use to read and write without worrying about the details or connections
 
 
-## Bus Stops
-
-
 
 *   allow grouping
     *   When we group, there is the ability to subgroup, to help organize
     *   While grouping mills is okay to do on the bus, mill structures have their own table/data-structure to keep that organization
-*   connect inputs to outputs (pipes)
-    *   When an input has a data change, the bus will pass that change to an output marked on the bus for it
     *   A single input can have multiple outputs, they each get the same copy
     *   Boxes can be copied automatically to other boxes
     *   Command returns and params can be hooked up to this to be synced with our boxes
@@ -50,12 +45,8 @@ These are called types of buses
     *   ⚑ flag about if this is static or dynamic
     *   ⚙ logic individual value is 0 if leaving, or 1 if being added
     *   ⚙ logic group value is the total count of grouped items being added or removed at this time
-*   pipe
-    *   / first trait is an input
-    *   / second trait is an output
-    *   ⚑ flag about if this is static or dynamic
-    *   ⚙ logic individual value is the data going from input to output
-    *   ⚙ logic group value is the combined json value of all the pipes running at this time
+time
+
 *   tag-association
     *   / first trait is the tag
     *   / second trait is the tag association pointee
@@ -63,17 +54,20 @@ These are called types of buses
     *   ⚙ logic individual value is a 1 or 0
     *   ⚙ logic group value is the total count for this group of associated tags that are set or unset this turn
         *   can put the associated tag in as the group for an easy match up of tag and count
+
 *   tag
     *   / first trait is regular or outside tag
     *   🛈 count of the trait
     *   ⚑ flag about if this is static or dynamic
     *   ⚙ logic individual value is the count of the tag
     *   ⚙ logic group value is the total count for this group of tags being pushed or popped at this time
+
 *   box-reference
     *   / first trait is a box
     *   ⚑ flag about if this is static or dynamic
     *   ⚙ logic individual value is the new value of the box
     *   ⚙ logic group value is the combined json value of the new values in the group changing at this time
+
 *   stack
     *   / first trait is the stack
     *   / second trait is the thing put on the stack

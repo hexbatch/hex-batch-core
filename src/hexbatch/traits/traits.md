@@ -8,28 +8,28 @@ Traits know their position in the hierarchy, have a name, and an id. Very minima
 
 
 *   🆔 🔤 GUID
-    *   **Auto generated string guid, can use in api calls **
+    * Auto generated string guid, can use in api calls
 *   👪 / inherited parent
-    *   **all descend from root. Parents cannot be changed for a trait after it's created**
-*   🛈 interface depth
-    *   **Auto generated and is the number of levels below root**
+    *  all descend from root. Parents cannot be changed for a trait after it's created
+* 🛈 interface depth
+    * Auto generated and is the number of levels below root
 *   🔤 name of trait
-    *   **Unique for all siblings from the same parent, any unicode non spaces, non punctuation. Differences between siblings must be easy to read, so no mixed case or 1 and lowercase L, or mixed - and _ , etc**
-    *   **Sometimes auto naming is used, when system created**
+    *   Unique for all siblings from the same parent, any unicode non spaces, non punctuation. Differences between siblings must be easy to read, so no mixed case or 1 and lowercase L, or mixed - and _ , etc
+    *   Sometimes auto naming is used, when system created
 *   🌐 nested world id
-    *   **nested worlds have their own traits to manage**
+    *   nested worlds have their own traits to manage
 *   ⚑ role
-    *   **a role pins a trait to a certain fate**
-        *   **tag,  mill, stack, box, bus, logic-operation, logic-action, mill-inheritance, mill-organization, stack-part-bus, stack-part-box, selection-rule,selection-action**
-        *   **might be others, for traits that define types of mills which are system standard, like promises, instances, interfaces,hooks,shells,elements, etc**
+    *   a role pins a trait to a certain fate
+        *   tag,  mill, stack, box, bus, logic-operation, logic-action, mill-inheritance, mill-organization, stack-part-bus, stack-part-box, selection-rule,selection-action
+        *   might be others, for traits that define types of mills which are system standard, like promises, instances, interfaces,hooks,shells,elements, etc
 *   ⚑  internal-flag
-    *   **optional integer which is used to help tie together some internal library concepts to the the system defined traits**
-    *   **System traits cannot be deleted by non system traits**
+    *   optional integer which is used to help tie together some internal library concepts to the the system defined traits
+    *   System traits cannot be deleted by non system traits
 *   ⚑ hub flag
-    *   **Not used except for routers who need to know when to pass information to the hub**
+    *   Not used except for routers who need to know when to pass information to the hub
 *   ⌚ timestamps
-    *   **created-at (filled in when created), and delete-at (default null)**
-    *   **can trash a trait, while still keeping it in memory**
+    *   created-at (filled in when created), and delete-at (default null)
+    *   can trash a trait, while still keeping it in memory
 
 Different roles of traits can start their inheritance anywhere
 

@@ -150,5 +150,98 @@ Most permissions boil down to : Can I see the trait ? Can I read the trait ? Can
 
 Hex Batch is not meant to be run alone when different users are managing their own things here. However, it is  easy to add a user auth layer and assign each user to have their own trait guid. It's also very easy to create admin, super, power and regular users with this strategy
 
+# Library Operation
+
+The library can either be run regular or be put into server mode.
+When executed without the server option, the input can be be yaml or json . The yaml sets the configs, and the json can be one or more commands.
+When adding both, the the commands can be under the commands: key in the yaml
+
+Cannot set config via input when running in server mode, it only accepts json
+
+	
+
+## start up commands:
+* --conf 
+    * can name of file to read from ( an empty --conf will set up to read from same folder program is in )
+    * or one or more --conf with name=value pairs for config
+* --help
+* --service -s 
+    * will only start listening when this is passed in , otherwise will shutdown once it does the command
+* --command -c execute one or more commands
+    * can be multiple -c for commands
+    * if command line then just space delimited command name arg1 arg2 etc
+    * If json piped to standard input then it will do that command(s) first 
+    * Can also be file(s) paths, one per -c
+    * alternately, the commands can be the last args listed and shoudl be seperted by semi-colons if more than one
+* --output -o output to a file, otherwise will be standard output    
+* --version -V
+    * will print out the version name
+* -v -vv -vvv verbose giving different levels of information. Default is none          
+
+
+##Configeration: 
+
+### Locations
+
+configerations can be set by different stickiness
+
+* source of config can be from yaml file:
+	* config.yaml, by default in same directory
+	* but if the -conf is passed a file, it will use that instead
+	 
+* configs can be set by environmental variables, which overwrite the same keys in the config file settings, which are still read in
+
+* standard input with a yaml format which overwrite the same keys of env variables and/or in the config file settings
+
+* config pairs from --config will  overwrite the same keys standard input yaml and/or env variables and/or in the config file settings
+	 
+
+
+### Config settings
+
+When making a single name for them take each key and seperate by underscores
+
+* db : database settings including host and port and charset, etc full names is db_port, db_host etc
+* error_log : 
+	* if left alone will make/write log in same directory program is in.  Or filename or foldername (it will create the log file there). Or can be 'stdout|stderr' or another pipe name
+* access_log : same as above
+* verbose_log : same as above, this is like access but with a lot more information
+* port: the port the server will listen to, if port is already bound, program will exit of course. But can have multiple versions running on differnet ports at same time
+* verbose : the level, if 0 (the default) then no verbosity
+
+
+
+## Commands
+
+### Api
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

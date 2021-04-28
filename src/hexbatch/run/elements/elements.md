@@ -40,11 +40,7 @@ The selection a glom uses can be either a specific trait id, or use a combinatio
 
 ## ◎ Targets (any trait can be a target)
 
-A target is simply a box with a descriptive trait that gloms can seek out, any tags attached to the element is part of the tags to select with
-
-The descriptive trait on the box can be anything that can be written to with permissions
-
-Elements do not have to use targets, but can have any number of targets also
+A target is simply what gloms look for. Targets can be tags, the mills that define the elements, boxes that are inside the element . A target must be inside an element whic can only be in the same shell or the context of running shells that the glom's element can see
 
 
 ## Element timeline in a turn

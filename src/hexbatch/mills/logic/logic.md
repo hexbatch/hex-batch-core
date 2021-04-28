@@ -242,13 +242,17 @@ In storage, Logic is divided into the trigger ⚙ 🏁  and action ⚙ ▶ parts
 
 ## Remote Calls
 
-There is an api for making remote calls, and the param that shows where the return data is stored can be the trait for a bus, which will put the return directly to the bus on the stack. Other params for this api call tell
+There is an api for making remote calls, while in a run context, and the param that shows where the return data is stored can be the trait for a bus, which will put the return directly to the bus on the stack. Other params for this api call tell
 
 
 
 *    what kind of call type this is (http, https, ftp,socket, system command
 *   the url, ip or socket name, includes port if different from default
 *   optional public or private keys to allow access or verify data
+
+## Copying boxes
+
+There is an api to copy the contents of one box to another (with casting done), this replaces the concept of buses automatically piping one box to another. Now, the bus can set up a box reference, then the logic rule can listen for that change, and then copy the contents
 
 
 ## Bus Trigger Cache data structure (table)

@@ -58,19 +58,19 @@ However, a trait needs to have permission to write to another trait before it ca
 
 
 *   🆔 🔤 guid for permission rule
-    *   **automatically created**
+    *   automatically created
 *   / 🌐 Nested World id
-    *   **nested worlds have their permissions branch after using the same system traits**
+    *   nested worlds have their permissions branch after using the same system traits
 *   / trait action
-    *   **the trait we are setting the permissions for**
-*   🛈 action-depth
-    *   **how many descendants we are setting this rule for on the action side**
+    *   the trait we are setting the permissions for
+*   ℹ action-depth
+    *  *how many descendants we are setting this rule for on the action sid*
 *   / trait target
-    *   **the trait that will be acted on**
-*   🛈 trait-depth
-    *   **how many descendants we are setting this rule for on the target side**
+    *  *the trait that will be acted o*
+*   ℹ trait-depth
+    *  *how many descendants we are setting this rule for on the target sid*
 *   ⚑ permission
-    *   **will be see,read, write. Write means can read and see. Read means can also see**
+    *  *will be see,read, write. Write means can read and see. Read means can also se*
 
 
 ## Selecting on Permissions
