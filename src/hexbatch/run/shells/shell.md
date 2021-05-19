@@ -6,6 +6,8 @@ Shells only run when an instance, created from an interface, enters into a promi
 
 The main shell  is automatically created when the execution starts in a promise and is always the same. The main shell is system created, and always has the same name and guid, has no tags that are readable or writable by any of the shells or elements that are inside of it. When the main shell is created, it is a new stack which has the context of the stack (promise) which created it
 
+@spec list how the shell maps into a segment
+
 
 ## Shell Timelines
 

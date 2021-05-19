@@ -1,8 +1,7 @@
 \page HexbatchApiReference Api Reference
 
-# API Reference (partial)
 
-## User Accounts
+
 \section UserAccounts  User Accounts
 
 * To get the default sudo user ```> get_default_sudo```
@@ -24,7 +23,9 @@ One of the guids generated or retrieved above will need to be used in any other 
 
 Users can be iterated through by use of selections, sudo users will have the trait role of **sudo-user** and regular users will have the trait role of **regular_user**
 
-Users can have information sent to a new or existing box trait for them using the regular api to set boxes for mills
+
+All users are implemented as an interface: Users can have information sent to a new or existing box trait for them using the regular api to set boxes for mills. 
+An interface is useful because then there can be user instances to interact more with the world
 
 ## API names
 

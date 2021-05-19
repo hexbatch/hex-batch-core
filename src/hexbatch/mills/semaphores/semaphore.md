@@ -2,6 +2,12 @@
 
 Semaphores control how many things at one time can do something. When a logic waits on a semaphore it does not activate until that semaphore pulses for that turn. Semaphores only are used in the logic and nowhere else. It's only in the logic that semaphores are waited on, and only in the logic where they are emitted
 
+Any logic can use and wait on any semaphore as long as they can read the trait of it. Any logic can emmit a semaphore if they have write privledge to it.
+
+A semaphore can be created to only be seen inside a certain stack context, if their target trait is a shell, then only things in the shell and its downward context can hear it, if emitted there, otherwise will not be heard at all. And such emmits will be seen no higher than that shell
+
+A semaphore cannot be heard outside the world it was emmitted in  
+
 Semaphores can have the following properties
 
 
@@ -15,9 +21,9 @@ Semaphores are simple segments, and store their information in the following fie
 
 
 
-*   🛈 𝝰 counter
+*   ℤ 𝝰 counter
     *   📣 semaphores,the minimum number of emit commands needed to toggle this emit
-*   🛈 𝞫 counter
+*   ℤ 𝞫 counter
     *   📣 semaphores,the number of emit commands given to it
 *   / ◎ the target trait
     *   📣 semaphores,when emitting, only this stack ≣  and its children can hear this

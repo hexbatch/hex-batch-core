@@ -2,7 +2,7 @@
 
 A promise is always made by an api call, so it uses an interface or instance as the main context for permissions when gathering
 
-The promise a main shell that gathers things to run. It works by selecting instances, or things that resolve to instances, and then when all those instances are collected, it will run the shells of the instances at the same time. If there are any exceptions or errors that are not handled, then the promise will end without affecting any boxes or busses in the rest of the world; so anything that happens in a promise will not affect the rest of the world unless it completes successfully.
+The promise gathers things to run. It works by selecting instances, or things that resolve to instances, and then when all those instances are collected, it will run the shells of the instances at the same time. If there are any exceptions or errors that are not handled, then the promise will end without affecting any boxes or busses in the rest of the world; so anything that happens in a promise will not affect the rest of the world unless it completes successfully.
 
 While instances can be moved by themselves using api commands to set their location and world, the promise moves instances also. When a promise selects a group of instances, they will all gather together in the same space. All the instances that run in a promise must overlap by at least 1 point in the same world. The area of the promise itself is the area of intersection of all of its instances
 

@@ -3,7 +3,7 @@
 Boxes hold and describe data, and give it properties. Since we are describing a template, or a singleton if this is static, we are not concerned about how it copies. That is for later in another structure. How this memory is used is also up to other structures.
 
 All boxes belong to a mill, but also have a unique trait that identifies them. That id-trait can only be associated with this box, so if I have a trait id, or name, it means this box
-<!-- TODO see if this works -->
+
 
 
 ## Box data storage
@@ -24,11 +24,9 @@ All boxes belong to a mill, but also have a unique trait that identifies them. T
     *   📦 for boxes, a possible link to another trait id that describes this box. This is called the descriptor trait
 *   / 𝞫  the beta trait
     *   📦 ∫ for boxes, stores the selection trait
-*   ⚑ operational flag
-    *   📦  for boxes, can a descendant ≣ 📦 write to this ?
 *   ⚑ descriptor flag
     *   📦  for boxes, this gives hints on how to share the dynamic data with other worlds
-*   🛈 𝞫 counter
+*   ℤ 𝞫 counter
     *   📦 for boxes, ↪  turn this was last updated on
     
 

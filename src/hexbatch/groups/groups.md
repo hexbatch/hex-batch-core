@@ -1,5 +1,6 @@
 # 𝝮 Group Operations
 
+Operations on groups that are on the bus
 
 ## Introduction
 

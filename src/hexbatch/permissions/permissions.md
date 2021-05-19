@@ -67,7 +67,7 @@ However, a trait needs to have permission to write to another trait before it ca
     *  *how many descendants we are setting this rule for on the action sid*
 *   / trait target
     *  *the trait that will be acted o*
-*   ℹ trait-depth
+*   ℤ trait-depth
     *  *how many descendants we are setting this rule for on the target sid*
 *   ⚑ permission
     *  *will be see,read, write. Write means can read and see. Read means can also se*

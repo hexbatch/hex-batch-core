@@ -233,7 +233,7 @@ In storage, Logic is divided into the trigger ⚙ 🏁  and action ⚙ ▶ parts
     *   ⚙ 🏁  for logic triggers, this is the bus that will active the top rule
 *   ⚑ operational flag
     *   ⚙ 🏁  for logic triggers, this is the operator
-*   𝝰 🛈 counter
+*   𝝰 ℤ counter
     *   ⚙ 🏁  for logic triggers, is the order which top rules will run
         *   does not have to be set, rules with same ranking will be run however
     *   ⚙ ▶  for logic actions, is the order which top actions will run for the same rule

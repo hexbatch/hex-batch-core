@@ -1,4 +1,4 @@
-# 🏭 Mills
+\page HexbatchMills 🏭 Mills
 
 
 ## Introduction
@@ -140,7 +140,7 @@ If a trait has write access to the id-trait, then that trait has permissions to 
     *   🏭 👪 for mill inheritance, this is the type of role the child does
     *   🏭 📂  for mill organization, this is the type of relationship
     *   ∫ ▶ selection actions,  how to use the selection results in that call
-*   🛈 𝝰 counter, which is used differently for each role
+*   ℤ 𝝰 counter, which is used differently for each role
     *   🚌 for buses, is the tag counter
     *   ≣ for stacks, this is the number of child stacks allowed
     *   ≣ 🚌 for stacked buses, is the current tag counter
@@ -150,7 +150,7 @@ If a trait has write access to the id-trait, then that trait has permissions to 
     *   ∫ ▶ selection actions, tells how many actions to do per page
     *   selection-active-paging, the current page
     *   📣 semaphores,the minimum number of emit commands needed to toggle this emit
-*   🛈 𝞫 counter, which is used differently for each role
+*   ℤ 𝞫 counter, which is used differently for each role
     *   📦 for boxes, ↪  turn this was last updated on
     *   ≣ for stacks, , ↪  turn this was last updated on
     *   ≣ 🚌 for stacked buses, is the old tag counter
@@ -207,13 +207,14 @@ To be considered a change of inherited mill organization, the relationship type 
 
 ## 📂 🏭 Grouping and Structures of Mills
 
-_Usually , Mills do not operate alone, and are organized to work together. For example, interfaces have gems, shells have element lists, promises have handlers_
+ Usually , Mills do not operate alone, and are organized to work together. For example, interfaces have gems, shells have element lists, promises have handlers 
 
-_Mills that do not inherit a structure from a parent make their own lists_
+ Mills that do not inherit a structure from a parent make their own lists 
+
+\section MillOrganization  Mill Organization Data
 
 
-### Mill Organization Data
-
+@spec Go into detail how the organized mills get put into  a stack at the same time
 
 
 *   / 🏭 mill owner

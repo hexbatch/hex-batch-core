@@ -37,6 +37,8 @@ The selection a glom uses can be either a specific trait id, or use a combinatio
 *   selectable things about the instance the element of the target belongs to
 *   anything selectable about the target descriptive id
 
+@spec put in which segment data this uses
+
 
 ## ◎ Targets (any trait can be a target)
 

@@ -1,4 +1,4 @@
-Box class
+Box class inherits from Segment class and its getters and setters wrap around the segment data
 
 * create
 * destroy

@@ -4,13 +4,14 @@ A Bus entry always belongs to a mill, although a mill does not need to have buse
 
 In general: buses provide a constant reference that others can use to read and write without worrying about the details or connections
 
+When there is activity on that bus. A bus will become "signaled" to any logic listening to it ( on the logic, this can start a logic rule if desired)
+Bus activity is defined by the role its playing . A bus is signaled the turn after the changes happen
+
 
 
 *   allow grouping
     *   When we group, there is the ability to subgroup, to help organize
     *   While grouping mills is okay to do on the bus, mill structures have their own table/data-structure to keep that organization
-    *   A single input can have multiple outputs, they each get the same copy
-    *   Boxes can be copied automatically to other boxes
     *   Command returns and params can be hooked up to this to be synced with our boxes
     *   gloms and targets can be hooked into boxes
 *   set the tags and keep records for the tag counts
@@ -54,26 +55,30 @@ time
     *   ⚙ logic individual value is a 1 or 0
     *   ⚙ logic group value is the total count for this group of associated tags that are set or unset this turn
         *   can put the associated tag in as the group for an easy match up of tag and count
+    *  Buses with tag associations become signaled when an association is added or removed     
 
 *   tag
     *   / first trait is regular or outside tag
-    *   🛈 count of the trait
+    *   ℤ count of the trait
     *   ⚑ flag about if this is static or dynamic
     *   ⚙ logic individual value is the count of the tag
     *   ⚙ logic group value is the total count for this group of tags being pushed or popped at this time
+    *   Buses with tags become signaled when the tag count changes
 
 *   box-reference
     *   / first trait is a box
-    *   ⚑ flag about if this is static or dynamic
+    *   ⚑ flag about if this is static or dynamic, or transient. Transient boxes have values that are not remembered when popped, dynamic have their values updated when a child pops
     *   ⚙ logic individual value is the new value of the box
     *   ⚙ logic group value is the combined json value of the new values in the group changing at this time
+    *   Box references become signaled when the box json changes
 
 *   stack
     *   / first trait is the stack
     *   / second trait is the thing put on the stack
-    *   🛈 count of the stack position
+    *   ℤ count of the stack position
     *   ⚙ logic individual value is the count of the stack
     *   ⚙ logic group value is the total count of all the stacks changing in this group at this time
+    *   Buses with stacks become signaled when there is a push or pop to the stack
 
 
 ## Bus Data Storage
@@ -96,12 +101,11 @@ time
 *   ⚑ descriptor flag
     *   🚌 for buses, it is the type of bus entry
     *   group
-    *   pipe (input output)
     *   tag association
     *   tag
     *   box-reference
     *   stack
 *   ⚑ contextual flag
     *   🚌 for buses, sets dynamic or static bus
-*   🛈 𝝰 counter
+*   ℤ 𝝰 counter
     *   🚌 for buses, is the tag counter

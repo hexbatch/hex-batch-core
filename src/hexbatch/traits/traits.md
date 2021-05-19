@@ -11,7 +11,7 @@ Traits know their position in the hierarchy, have a name, and an id. Very minima
     * Auto generated string guid, can use in api calls
 *   👪 / inherited parent
     *  all descend from root. Parents cannot be changed for a trait after it's created
-* 🛈 interface depth
+*   ℤ interface depth
     * Auto generated and is the number of levels below root
 *   🔤 name of trait
     *   Unique for all siblings from the same parent, any unicode non spaces, non punctuation. Differences between siblings must be easy to read, so no mixed case or 1 and lowercase L, or mixed - and _ , etc
