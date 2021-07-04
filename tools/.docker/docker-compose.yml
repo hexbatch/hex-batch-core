@@ -117,8 +117,6 @@ services:
     build:
       context: .
       dockerfile: ./doxygen/Dockerfile
-    volumes:
-      - ${APP_CODE_PATH_HOST}/data
     networks:
       - backend
 

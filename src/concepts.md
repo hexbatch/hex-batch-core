@@ -215,6 +215,24 @@ When making a single name for them take each key and seperate by underscores
 
 ### Api
 
+# Scratch docs
+
+"Hex Batch allows things to be organized with maps. Designed to allow a single map to be divided into areas, each controlled by a different server: this distributed library potentially manages billions of objects, having 3rd party connections, and time and space coordinates, be interacted with and manipulated . Providing an open sandbox type of programming using a type of biological logic which is not your traditional programming platform"
+so, for example, if I want to give people coupons through facebook, then I can do any kind of logic and rules for these coupons based on who has them, where, and what time it is, and what other coupons they have. I can set up how long these things last, and even convert them to other things. I can use this library to also hold other things, like crypto currency collections, or game tokens.
+
+while its easy to make code to do this on small scale projects, this can be upscaled to do trillions of things over thousands of servers in real time
+so, that basically is what the library does. It handles these objects, how to make collections of these objects (and these collections might be on widely separated servers), handles permissions to give people ability to hide or see objects, to delegate to others how the things are changed, or updated. Can do searches for these objects and things. Each thing can be associated with complicated patterns and slices of time, and also be associated with 3d shapes . So, this library can also be used to do huge things like minecraft, but shared worlds with millions of maps
+
+and, it will do it using a single code base, that is not too large to handle
+anyway, that is what I want this library to do. Once its up, I can make my coupon and delivery service, which will run on this logic
+this library does not care about what kind of data is hooked up to these objects and things. It simply manipulates the basic properties of them and allows the above to happen. So, once I do this library, I can add in my coupon layer. If someone wants to use it to combine minecraft maps, or use it to do fancy logic with game tokens, they can do that too
+the main thing this library will offer is the ability to do what it does at a very large scale, and also what it does is kind of unique. Not many things will take sets of tags, and use it with space and time patterns, and then give a permission structure to it
+I hope that helps
+
+It took me a year to make the plans for this. I know it will work, I just have to code the ideas from the hundred page specification I made
+additionally, this library allows people to make automated services that changes the objects they are allowed to change, using things that they are allowed to see , and it automates the heck of this. So, its easy to make complex rules for how things change
+and, on top of that, its a new type of programming for the making of the automatic stuff. I kind of previewed some of its basic concepts in that JavaScript page I made that maps graphs
+
 
 
 

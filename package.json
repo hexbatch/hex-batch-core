@@ -15,6 +15,7 @@
     "type": "git",
     "url": "https://github.com/hexbatch/hex-batch-core.git"
   },
-  "dependencies": {
-  }
+  "workspaces": [
+    "tools/htdocs/hexbatch-core-flow"
+  ]
 }

@@ -84,7 +84,9 @@ local.properties
 !/edocs/.keep
 !/edocs/index.html
 
-
+#yarn
+.yarn/
+.yarnrc.yml 
 
 # Linux trash folder which might appear on any partition or disk
 .Trash-*

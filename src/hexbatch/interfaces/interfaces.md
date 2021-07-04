@@ -66,9 +66,12 @@ Can make new interfaces that are pure descendants. However, the calculated boxes
 
 ## Constructors
 
-When new instances are needed, a constructor is used. Constructors are 📎 hooks that return 0 or more 𝞴  instances, other # interfaces, or deferred 𝞇  promises. There can be any combination. Each # interface is allowed zero or more of these hooks, and each can contribute none , some or all of the returns. The returns of the constructors is what is actually produced, so its possible to only create instances if certain conditions are met. When there is nothing returned by a constructor, then no instances are created. If there are other interfaces or promises returned, those are run until they, or what they return, is all resolved down to an instance list of 0 or more instances only
+When new instances are needed, a constructor is used. Constructors are [📎 hooks](@ref HookToApi ) that return 0 or more 𝞴  instances, other # interfaces, or deferred 𝞇  promises. There can be any combination. Each # interface is allowed zero or more of these hooks, and each can contribute none , some or all of the returns. The returns of the constructors is what is actually produced, so its possible to only create instances if certain conditions are met. When there is nothing returned by a constructor, then no instances are created. If there are other interfaces or promises returned, those are run until they, or what they return, is all resolved down to an instance list of 0 or more instances only
 
 Instances can share constructors from inheritance, or create new ones
+
+@spec There is an api call that is broadcast when a promise tries to resolve an interface, it is this api call that the hooks can generate responses 
+
 
 
 ## Destructors

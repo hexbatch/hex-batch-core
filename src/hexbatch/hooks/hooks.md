@@ -1,4 +1,4 @@
-# 📎 Hooks
+\page HexbatchHooks 📎 Hooks
 
 Hooks react to events, they are placed, and wait for something to happen. Hooks can listen for api calls being made, instances being in places (or not being there at all), or listen for any other change throughout the library. The hook can only listen to traits it has permission to see , and sometimes needs to be able read them also. A hook can have a few different forms
 
@@ -47,8 +47,16 @@ For sister worlds, the hook setup data is considered static, so is shared automa
     *   Automatically delete a trait if a condition exists
     *   Per Promise Hooks
 
-            Sometimes one just needs that extra bit of oomph in a promise, hooks latched on to a promise can update things before a promise ends, for example, or cancel a promise when rules set up are violated
+   Sometimes one just needs that extra bit of oomph in a promise, hooks latched on to a promise can update things before a promise ends, for example, or cancel a promise when rules set up are violated
 
+
+\section HookToApi Hooking on the API
+
+There are two types of api hooks, those that can block the api from going forward (if there are read on the api and write to any one of the things the api call is working with)
+
+And some api calls allow returns to be answered by the mill logic (if there is read on the api, and write on the args to the api)
+
+   
 
 
 ### Rate Limiting
