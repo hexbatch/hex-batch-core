@@ -50,11 +50,20 @@ services:
       - GK_MYSQL_PASSWORD=${DB_MYSQL_PASSWORD}
       - GK_MYSQL_PORT=${DB_MYSQL_OWNPORT}
       - GK_MYSQL_CHARSET=${DB_MYSQL_CHARSET}
+      - GK_MYSQL_COLLATION=${DB_MYSQL_COLLATION}
       - GK_MYSQL_HOST=db
+      - DB_FLOW_DATABASE=hexbatch_flow
+      - DB_FLOW_USER=hexbatch_flow
+      - DB_FLOW_PASSWORD=DPk@IT58YWQuZLJI
+      - DB_FLOW_HOSTPORT=${DB_MYSQL_OWNPORT}
+      - DB_FLOW_CHARSET=${DB_MYSQL_CHARSET}
+      - DB_FLOW_COLLATION=${DB_MYSQL_COLLATION}
+      - DB_FLOW_HOST=db
       - XDEBUG_SESSION=PHPSTORM
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
-      - .shared/config/php/php.ini:/usr/local/etc/php/php.ini
+      - .shared/config/php/php-fpm-fcgi.ini:/usr/local/etc/php/php-fpm-fcgi.ini  #php-fpm-fcgi.ini
+      - .shared/config/php/php-cli.ini:/usr/local/etc/php/php-cli.ini           #php-cli.ini
     networks:
       - backend
     extra_hosts:

@@ -30,6 +30,8 @@ RUN /tmp/scripts/install_php_extensions.sh
 
 # php-fpm pool config
 COPY ${SERVICE_DIR}/php-fpm.d/* /usr/local/etc/php-fpm.d
+
+
 RUN /tmp/scripts/modify_config.sh /usr/local/etc/php-fpm.d/zz-app.conf \
     "__APP_USER" \
     "${APP_USER}" \
