@@ -1,0 +1,3 @@
+[submodule "tools/htdocs"]
+	path = tools/htdocs
+	url = git@github.com:hexbatch/hexbatch-core-flow.git

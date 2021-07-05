@@ -16,6 +16,6 @@
     "url": "https://github.com/hexbatch/hex-batch-core.git"
   },
   "workspaces": [
-    "tools/htdocs/hexbatch-core-flow"
+    "tools/htdocs"
   ]
 }
