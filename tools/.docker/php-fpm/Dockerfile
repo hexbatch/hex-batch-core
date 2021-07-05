@@ -3,6 +3,8 @@ FROM php:${TARGET_PHP_VERSION}-fpm
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
 ARG SERVICE_DIR="./php-fpm"
 COPY ./.shared/scripts/ /tmp/scripts/
 RUN chmod +x -R /tmp/scripts/
@@ -19,12 +21,12 @@ ARG APP_GROUP_ID=1000
 
 RUN /tmp/scripts/create_user.sh ${APP_USER} ${APP_GROUP} ${APP_USER_ID} ${APP_GROUP_ID}
 
-RUN /tmp/scripts/install_php_extensions.sh
-
 RUN /tmp/scripts/install_software.sh
 
-# php config
-COPY ./.shared/config/php/conf.d/*  /usr/local/etc/php/conf.d/
+RUN /tmp/scripts/install_php_extensions.sh
+
+
+
 
 # php-fpm pool config
 COPY ${SERVICE_DIR}/php-fpm.d/* /usr/local/etc/php-fpm.d

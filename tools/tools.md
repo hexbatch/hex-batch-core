@@ -145,7 +145,8 @@ The document root is at htdocs/ in this folder
 * if need to debug container that will not start, then make a new thing and enter it
    	 * `docker run -it --rm --entrypoint sh hexbatch_dev/phinx` 
 
-* Opens up a bash shell inside the php and environment of the container. The default directory in the shell is mapped to the code directory here
+* Opens up a bash shell inside the php or db container. For php, the default directory in the shell is mapped to the htdocs directory here
+    * `sudo docker exec -it hexbatch_dev_php-fpm_1 bash`
     * `sudo docker exec -it hexbatch_dev_db_1 bash`
 
 * when working with a stopped container, and you need to start it again and work with the shell

@@ -159,7 +159,7 @@ _single operators_
         *   @example 3 is the same as above but two more steps removed: 𝝰 has a trait value which links to something in the same column, which then itself links to something in the same column, which that one then links directly to 𝞫
         *   @example -1 means 𝞫  has a trait value in the column which itself links to 𝝰
         *   @example the (3) example but switch out 𝝰 and 𝞫
-        *   so can do a range of relationships [0,5] , [2,4] [-3,6] etc or just [0,0] for direct
+        *   so can do a range of relationships  [0 5]  ,  [2 4] ,  [-3 6] etc or just [0,0] for direct
     *   **⏎**  all 𝝰 that directly (or maybe indirectly depending on the min max) have 𝞫 as a value with this column , ( or vice versa depending on min max)
 *   order-set-by-x
     *   where x is any column in the segments. This is used usually to order a set before splicing or before a selection ends

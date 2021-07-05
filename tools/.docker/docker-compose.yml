@@ -51,10 +51,14 @@ services:
       - GK_MYSQL_PORT=${DB_MYSQL_OWNPORT}
       - GK_MYSQL_CHARSET=${DB_MYSQL_CHARSET}
       - GK_MYSQL_HOST=db
+      - XDEBUG_SESSION=PHPSTORM
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+      - .shared/config/php/php.ini:/usr/local/etc/php/php.ini
     networks:
       - backend
+    extra_hosts:
+      host.docker.internal: host-gateway
 
 
   db:

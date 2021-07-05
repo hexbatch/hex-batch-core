@@ -1,6 +1,6 @@
 # 𝞇 Promises , where 𝞴 are gathered and 🐚 run
 
-A promise is always made by an api call, so it uses an interface or instance as the main context for permissions when gathering
+A promise is always made by an api call, or hook, so it uses an interface or instance as the main context for permissions when gathering
 
 The promise gathers things to run. It works by selecting instances, or things that resolve to instances, and then when all those instances are collected, it will run the shells of the instances at the same time. If there are any exceptions or errors that are not handled, then the promise will end without affecting any boxes or busses in the rest of the world; so anything that happens in a promise will not affect the rest of the world unless it completes successfully.
 
