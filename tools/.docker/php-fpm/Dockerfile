@@ -1,6 +1,8 @@
 ARG TARGET_PHP_VERSION=7.4
 FROM php:${TARGET_PHP_VERSION}-fpm
 
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
 ARG SERVICE_DIR="./php-fpm"
 COPY ./.shared/scripts/ /tmp/scripts/
 RUN chmod +x -R /tmp/scripts/
