@@ -16,6 +16,9 @@ ARG APP_GROUP_ID=1000
 
 RUN /tmp/scripts/create_user.sh ${APP_USER} ${APP_GROUP} ${APP_USER_ID} ${APP_GROUP_ID}
 
+RUN mkdir -p /var/www/flow_projects
+RUN chown ${APP_USER}:${APP_GROUP} /var/www/flow_projects
+
 RUN /tmp/scripts/install_software.sh
 
 # nginx config

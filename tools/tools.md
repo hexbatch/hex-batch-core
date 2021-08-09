@@ -136,9 +136,7 @@ The port is set in the env to be whatever is needed: example localhost:8000
 	
 The document root is at htdocs/ in this folder
 
-
-  
-        
+     
         
 # Useful Docker Commands
 
