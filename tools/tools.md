@@ -136,6 +136,13 @@ The port is set in the env to be whatever is needed: example localhost:8000
 	
 The document root is at htdocs/ in this folder
 
+
+# backups
+
+* https://github.com/offen/docker-volume-backup
+* configured to do automatically at 1am each day if the containers are running, will stop services while doing this
+* manual command to do so at anytime is `docker exec hexbatch_dev_backup_1 backup`
+
      
         
 # Useful Docker Commands
