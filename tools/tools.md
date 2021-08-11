@@ -8,6 +8,12 @@ All the tools and programs can be used inside docker, and there is a make file i
 * run `make -C tools docker-up` to build all of them at once. It may take a while
 
 DB and other settings are passed to php via environmental variables which are created from the .env file
+
+If you change the environmental variables, need to run `make -C tools docker-build` before they take effect. You will need to do a docker-down and docker-up again after that to avoid issues (nginx is particularly stubborn about restarting)
+
+if there is an issue with a container, then check the docker logs, using the name of the thing you want to track
+
+	docker logs --tail 50 --follow --timestamps hexbatch_dev_backup_1
     
 ### Examples            
 
@@ -139,9 +145,20 @@ The document root is at htdocs/ in this folder
 
 # backups
 
-* https://github.com/offen/docker-volume-backup
+* using https://github.com/offen/docker-volume-backup
 * configured to do automatically at 1am each day if the containers are running, will stop services while doing this
 * manual command to do so at anytime is `docker exec hexbatch_dev_backup_1 backup`
+* to restore (after downloading and untarring backup, there will be two folders, one for each backed up volumne, then picking one each:
+
+		docker run -d \
+		  --name backup_restore \
+		  -v <name of docker volumn.:/backup_restore
+		  alpine
+		docker cp <location_of_your_unpacked_backup> backup_restore:/backup_restore
+		docker stop backup_restore && docker rm backup_restore
+		
+		
+* if, for some reason, you need to forcefully stop the backup container by itself, then `sudo docker rm --force hexbatch_dev_backup_1`		
 
      
         
