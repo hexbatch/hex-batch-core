@@ -169,12 +169,12 @@ services:
       # If this value is not given, backup will be kept forever.
       #BACKUP_RETENTION_DAYS: "7"
       # Credentials for your storage backend
-      AWS_ACCESS_KEY_ID: "${BACKUP_AWS_ACCESS_KEY_ID}"
-      AWS_SECRET_ACCESS_KEY: "${BACKUP_AWS_SECRET_ACCESS_KEY}"
-      AWS_S3_BUCKET_NAME: "${BACKUP_AWS_S3_BUCKET_NAME}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      AWS_S3_BUCKET_NAME: "${AWS_S3_BUCKET_NAME}"
       # If given, backups are encrypted using GPG
       # GPG_PASSPHRASE: "<SOME_KEY>"
-      MC_GLOBAL_OPTIONS: "--debug"
+      MC_GLOBAL_OPTIONS: "${MC_GLOBAL_OPTIONS}"
     volumes:
       # Mounting the Docker socket allows the script to stop and restart
       # the container during backup. You can omit this if you don't want
