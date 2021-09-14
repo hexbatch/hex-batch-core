@@ -40,6 +40,17 @@ RUN /tmp/scripts/modify_config.sh /usr/local/etc/php-fpm.d/zz-app.conf \
     "${APP_GROUP}" \
 ;
 
+RUN mkdir -p /home/www-data/.ssh/ \
+ && chown ${APP_USER}:${APP_USER} -R /home/www-data/ \
+ && chmod go-rwx -R /home/www-data/ \
+;
+
+RUN (host=github.com; ssh-keyscan -H $host; for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan -H $host,$ip; ssh-keyscan -H $ip; done) 2> /dev/null >> /home/www-data/.ssh/known_hosts;
+
+RUN chown ${APP_USER}:${APP_USER}  /home/www-data/.ssh/known_hosts \
+ && chmod go+r  /home/www-data/.ssh/known_hosts \
+;
+
 # workdir
 ARG APP_CODE_PATH="/var/www/current"
 WORKDIR "$APP_CODE_PATH"
