@@ -47,7 +47,7 @@ services:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
       - .shared/config/php/php-fpm-fcgi.ini:/usr/local/etc/php/php-fpm-fcgi.ini  #php-fpm-fcgi.ini
       - .shared/config/php/php-cli.ini:/usr/local/etc/php/php-cli.ini           #php-cli.ini
-      - flow_project_files:${APP_FLOW_PROJECT_PATH_CONTAINER}
+      - flow_project_files:${APP_FLOW_PROJECT_PATH_CONTAINER} 
     networks:
       - backend
     extra_hosts:
