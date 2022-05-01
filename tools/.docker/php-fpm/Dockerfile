@@ -23,6 +23,8 @@ RUN /tmp/scripts/create_user.sh ${APP_USER} ${APP_GROUP} ${APP_USER_ID} ${APP_GR
 
 RUN /tmp/scripts/install_software.sh
 
+RUN apt install -yqq libarchive-tools
+
 RUN /tmp/scripts/install_php_extensions.sh
 
 
@@ -46,6 +48,9 @@ RUN mkdir -p /home/www-data/.ssh/ \
 ;
 
 RUN (host=github.com; ssh-keyscan -H $host; for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan -H $host,$ip; ssh-keyscan -H $ip; done) 2> /dev/null >> /home/www-data/.ssh/known_hosts;
+RUN (host=bitbucket.org; ssh-keyscan -H $host; for ip in $(dig @8.8.8.8 bitbucket.org +short); do ssh-keyscan -H $host,$ip; ssh-keyscan -H $ip; done) 2> /dev/null >> /home/www-data/.ssh/known_hosts;
+RUN (host=gitlab.com; ssh-keyscan -H $host; for ip in $(dig @8.8.8.8 gitlab.com +short); do ssh-keyscan -H $host,$ip; ssh-keyscan -H $ip; done) 2> /dev/null >> /home/www-data/.ssh/known_hosts;
+
 
 RUN chown ${APP_USER}:${APP_USER}  /home/www-data/.ssh/known_hosts \
  && chmod go+r  /home/www-data/.ssh/known_hosts \
