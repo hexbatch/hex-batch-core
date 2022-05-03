@@ -84,7 +84,7 @@ services:
 
 
   db:
-    image: mysql:latest
+    image: mysql:8.0.29
 
     #allow user to create triggers and procedures
     command: --log_bin_trust_function_creators=1

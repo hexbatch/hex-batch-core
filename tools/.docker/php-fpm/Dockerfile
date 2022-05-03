@@ -1,4 +1,4 @@
-ARG TARGET_PHP_VERSION=7.4
+ARG TARGET_PHP_VERSION=8.1.5
 FROM php:${TARGET_PHP_VERSION}-fpm
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
