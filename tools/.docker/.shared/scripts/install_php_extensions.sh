@@ -13,6 +13,7 @@ chmod uga+x /usr/local/bin/install-php-extensions && sync && install-php-extensi
     curl \
     zip \
     bcmath \
+    luasandbox \
     intl \
 ;
 
